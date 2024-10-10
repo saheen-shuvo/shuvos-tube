@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shuvo's Tube</title>
+    <!-- Google Font CDn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <!-- DaisyUI CDN -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
@@ -18,10 +25,11 @@
   </head>
   <body>
     <header>
-      <nav class="flex justify-between mx-1 mt-1 lg:mx-6 lg:mt-6">
+<!--Nav Bar -->
+      <nav class="flex justify-between mx-1 mt-1 lg:mx-6 lg:mt-6 ">
         <div class="flex items-center jus gap-1 w-[33.33%] lg:gap-2">
           <img class="w-[20px] lg:w-8" src="./assests/Logo.png" alt="" />
-          <h3 class="text-black text-[12px] lg:text-3xl font-bold">
+          <h3 class="text-black text-[12px] lg:text-3xl font-bold poppins-font">
             SHUVO'S <span class="text-red-600">Tube</span>
           </h3>
         </div>
@@ -45,14 +53,24 @@
           </label>
         </div>
         <div class="w-[33.33%] mt-1 flex justify-center">
-          <button class="border-2 px-8 rounded-lg h-[40px] lg:h-[50px] font-semibold bg-red-600 text-white">
+          <button
+            class="border-2 px-8 rounded-lg h-[40px] lg:h-[50px] font-semibold bg-red-600 text-white poppins-font"
+          >
             Sort
           </button>
         </div>
       </nav>
+<!-- Divider -->
       <div class="flex w-full flex-col">
         <div class="divider m-0 mt-0 lg:mt-6"></div>
       </div>
+
+      <nav id="categories" class="py-3 flex gap-5 justify-center"></nav>
     </header>
+    <main>
+        <section id="videos-container" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10"></section>
+    </main>
+
+    <script src="./script/video.js"></script>
   </body>
 </html>
