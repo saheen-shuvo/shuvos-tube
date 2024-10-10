@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +13,46 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- CSS LINk -->
     <link rel="stylesheet" href="./style/style.css" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <nav class="flex justify-between mx-1 mt-1 lg:mx-6 lg:mt-6">
+        <div class="flex items-center jus gap-1 w-[33.33%] lg:gap-2">
+          <img class="w-[20px] lg:w-8" src="./assests/Logo.png" alt="" />
+          <h3 class="text-black text-[12px] lg:text-3xl font-bold">
+            SHUVO'S <span class="text-red-600">Tube</span>
+          </h3>
+        </div>
+        <div class="w-[33.33%] mt-1">
+          <label
+            class="input h-[40px] lg:h-[50px] input-bordered flex items-center"
+          >
+            <input type="text" class="grow" placeholder="Search" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="h-4 w-4 opacity-70"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </label>
+        </div>
+        <div class="w-[33.33%] mt-1 flex justify-center">
+          <button class="border-2 px-8 rounded-lg h-[40px] lg:h-[50px] font-semibold bg-red-600 text-white">
+            Sort
+          </button>
+        </div>
+      </nav>
+      <div class="flex w-full flex-col">
+        <div class="divider m-0 mt-0 lg:mt-6"></div>
+      </div>
+    </header>
+  </body>
 </html>
