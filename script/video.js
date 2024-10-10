@@ -1,5 +1,13 @@
 // Fetch, Load and Show Categories on html
 
+// A function that convert seconds to hrs, min
+function getTimeString(time){
+  const hours = parseInt(time / 3600);
+  let seconds = time % 3600;
+  const minutes = parseInt(seconds / 60);
+  return `${hours} hrs ${minutes} mins ago`
+}
+
 // 1. Create LoadCategories
 const LoadCategories = () => {
   fetch("https://openapi.programming-hero.com/api/phero-tube/categories")
@@ -15,25 +23,25 @@ const LoadVideos = () => {
     .catch((error) => console.log(error));
 };
 
-const cardDemo = {
-  category_id: "1001",
-  video_id: "aaaa",
-  thumbnail: "https://i.ibb.co/L1b6xSq/shape.jpg",
-  title: "Shape of You",
-  authors: [
-    {
-      profile_picture: "https://i.ibb.co/D9wWRM6/olivia.jpg",
-      profile_name: "Olivia Mitchell",
-      verified: "",
-    },
-  ],
-  others: {
-    views: "100K",
-    posted_date: "16278",
-  },
-  description:
-    "Dive into the rhythm of 'Shape of You,' a captivating track that blends pop sensibilities with vibrant beats. Created by Olivia Mitchell, this song has already gained 100K views since its release. With its infectious melody and heartfelt lyrics, 'Shape of You' is perfect for fans looking for an uplifting musical experience. Let the music take over as Olivia's vocal prowess and unique style create a memorable listening journey.",
-};
+// const cardDemo = {
+//   category_id: "1001",
+//   video_id: "aaaa",
+//   thumbnail: "https://i.ibb.co/L1b6xSq/shape.jpg",
+//   title: "Shape of You",
+//   authors: [
+//     {
+//       profile_picture: "https://i.ibb.co/D9wWRM6/olivia.jpg",
+//       profile_name: "Olivia Mitchell",
+//       verified: "",
+//     },
+//   ],
+//   others: {
+//     views: "100K",
+//     posted_date: "16278",
+//   },
+//   description:
+//     "Dive into the rhythm of 'Shape of You,' a captivating track that blends pop sensibilities with vibrant beats. Created by Olivia Mitchell, this song has already gained 100K views since its release. With its infectious melody and heartfelt lyrics, 'Shape of You' is perfect for fans looking for an uplifting musical experience. Let the music take over as Olivia's vocal prowess and unique style create a memorable listening journey.",
+// };
 
 // 2. Create DisplayVideos
 const displayVideos = (videos) => {
@@ -43,16 +51,29 @@ const displayVideos = (videos) => {
     const card = document.createElement("div");
     card.classList = "card card-compact";
     card.innerHTML = `
-        <figure>
-    <img
+        <figure class="h-[187px] relative">
+    <img class="h-full w-full object-cover"
       src=${video.thumbnail}
       alt="Shoes" />
+      ${video.others.posted_date?.length === 0 ? '' : `<span class="absolute bg-[#2f2f2f99] text-[#ffffffae] rounded p-1 right-1 bottom-1 text-xs">${getTimeString(video.others.posted_date)}</span>`}
   </figure>
-  <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+  <div class="px-0 py-2 flex gap-2">
+    <div>
+     <img class="w-8 h-8 rounded-full object-cover" src=${
+       video.authors[0].profile_picture
+     }/>
+    </div>
+    <div>
+     <h2 class="font-semibold">${video.title}</h2>
+     <div class="flex">
+           <p class="text-sm text-gray-500">${video.authors[0].profile_name}</p>
+           ${
+             video.authors[0].verified === true
+               ? '<img class="w-[17px] h-[17px] mt-[3px] ml-1" src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" />'
+               : ""
+           }
+     </div>
+     <p></p>
     </div>
   </div>
         `;
