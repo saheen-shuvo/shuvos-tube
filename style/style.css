@@ -1,3 +1,7 @@
 .poppins-font{
     font-family: "Poppins", sans-serif;
   }
+.active{
+  background-color: red;
+  color: white;
+}
