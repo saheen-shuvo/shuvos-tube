@@ -17,8 +17,8 @@ function LoadCategories() {
 }
 
 // 2. Create LoadVideos
-const LoadVideos = () => {
-  fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
+const LoadVideos = (searchText = "") => {
+  fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
     .then((res) => res.json())
     .then((data) => displayVideos(data.videos))
     .catch((error) => console.log(error));
@@ -121,7 +121,7 @@ const displayVideos = (videos) => {
      </div>
      <p><button onclick="loadDetails('${
        video.video_id
-     }')" class="btn btn-sm btn-error">Details</button></p>
+     }')" class="px-2 py-[1px] bg-slate-300 rounded-md text-xs">Details</button></p>
     </div>
   </div>
         `;
@@ -145,6 +145,11 @@ const DisplayCategories = (categories) => {
     categoryContainer.append(buttonContainer);
   });
 };
+
+// For search bar
+document.getElementById("search-input").addEventListener("keyup", (e) => {
+  LoadVideos(e.target.value);
+});
 
 LoadCategories();
 LoadVideos();

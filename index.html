@@ -27,17 +27,20 @@
     <header>
 <!--Nav Bar -->
       <nav class="flex justify-between mx-1 mt-1 lg:mx-6 lg:mt-6 ">
+        <!-- Logo -->
         <div class="flex items-center jus gap-1 w-[33.33%] lg:gap-2">
           <img class="w-[20px] lg:w-8" src="./assests/Logo.png" alt="" />
           <h3 class="text-black text-[12px] lg:text-3xl font-bold poppins-font">
-            SHUVO'S <span class="text-red-600">Tube</span>
+            Shuvo's <span class="text-red-600">TUBE</span>
           </h3>
         </div>
+
+        <!-- Search Bar -->
         <div class="w-[33.33%] mt-1">
           <label
             class="input h-[40px] lg:h-[50px] input-bordered flex items-center"
           >
-            <input type="text" class="grow" placeholder="Search" />
+            <input id="search-input" type="text" class="grow" placeholder="Search" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -52,6 +55,7 @@
             </svg>
           </label>
         </div>
+
         <div class="w-[33.33%] mt-1 flex justify-center">
           <button
             class="border-2 px-8 rounded-lg h-[40px] lg:h-[50px] font-semibold bg-red-600 text-white poppins-font"
